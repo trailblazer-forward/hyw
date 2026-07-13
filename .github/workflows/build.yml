@@ -28,6 +28,7 @@ jobs:
       - name: Page Build
         run: uv run properdocs build -v
       - name: Get Github App Token
+        if: ${{ github.event_name == 'push' }}
         uses: actions/create-github-app-token@v3
         id: app-token
         with:
